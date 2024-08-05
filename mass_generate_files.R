@@ -22,7 +22,8 @@ parsed_table <- links_vec %>%
   mutate(
     old_repo = stringr::str_extract(link,  "^[^/]*/") %>%
       stringr::str_remove("/"),
-    page = stringr::str_remove(link,  "^[^/]*/") 
+    page = stringr::str_remove(link,  "^[^/]*/") %>%
+      stringr::str_remove(".html") 
     ) 
 
 purrr::map2(
